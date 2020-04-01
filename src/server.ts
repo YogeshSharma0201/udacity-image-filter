@@ -32,7 +32,7 @@ import { filterImageFromURL, deleteLocalFiles } from './util/util';
 
   app.get('/filteredimage', async (req, res) => {
     let image_url: string = req.query.image_url;
-    if (!image_url) res.status(400).send('image_url not set!');
+    if (!image_url) res.status(422).send('image_url not set!');
 
     filterImageFromURL(image_url)
       .then((output_image_url: string) => {
@@ -43,7 +43,7 @@ import { filterImageFromURL, deleteLocalFiles } from './util/util';
         }).pipe(res);
       })
       .catch((err) => {
-        res.status(400).send(err.message || "Bad request");
+        res.status(422).send(err.message || "Bad request");
       })
   });
 

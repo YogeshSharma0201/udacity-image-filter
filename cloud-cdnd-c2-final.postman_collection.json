@@ -1,20 +1,45 @@
 {
 	"info": {
-		"_postman_id": "4bcf1909-8996-44b7-be35-b130ab03d12f",
+		"_postman_id": "3bedb3ef-651a-4250-8a87-989a0fbbb3cc",
 		"name": "cloud-cdnd-c2-final",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "http://localhost:8082/filteredimage?image_url=https://timedotcom.files.wordpress.com/2019/03/kitten-report.jpg",
+			"name": "Local server api",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://{{HOST}}/filteredimage?image_url=https://timedotcom.files.wordpress.com/2019/03/kitten-report.jpg",
+					"raw": "http://localhost:{{PORT}}/filteredimage?image_url=https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQbxyBpSpUrl2ZECzy-epybU8ay0KV5X-GRa3aQBliXTQL7Fel8%26usqp=CAU",
 					"protocol": "http",
 					"host": [
-						"{{HOST}}"
+						"localhost"
+					],
+					"port": "{{PORT}}",
+					"path": [
+						"filteredimage"
+					],
+					"query": [
+						{
+							"key": "image_url",
+							"value": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQbxyBpSpUrl2ZECzy-epybU8ay0KV5X-GRa3aQBliXTQL7Fel8&usqp=CAU"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Elastic bean api",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{EB_URL}}/filteredimage?image_url=https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQbxyBpSpUrl2ZECzy-epybU8ay0KV5X-GRa3aQBliXTQL7Fel8%26usqp=CAU",
+					"protocol": "http",
+					"host": [
+						"{{EB_URL}}"
 					],
 					"path": [
 						"filteredimage"
@@ -22,7 +47,7 @@
 					"query": [
 						{
 							"key": "image_url",
-							"value": "https://timedotcom.files.wordpress.com/2019/03/kitten-report.jpg"
+							"value": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQbxyBpSpUrl2ZECzy-epybU8ay0KV5X-GRa3aQBliXTQL7Fel8&usqp=CAU"
 						}
 					]
 				}
@@ -54,10 +79,23 @@
 	],
 	"variable": [
 		{
-			"id": "1df3d31a-de30-494b-a3d0-f1228dd8713c",
+			"id": "fae5902d-0bc3-4f02-a0f1-3f59514ce218",
 			"key": "HOST",
 			"value": "localhost:8082",
 			"type": "string"
+		},
+		{
+			"id": "beafc9e3-b02a-489f-9bcf-8b8ead4f3f3c",
+			"key": "PORT",
+			"value": "8082",
+			"type": "string"
+		},
+		{
+			"id": "10bf7a78-cc7d-4d3d-af06-8ac966cde7e4",
+			"key": "EB_URL",
+			"value": "udacity-filter-image-dev.us-east-1.elasticbeanstalk.com",
+			"type": "string"
 		}
-	]
+	],
+	"protocolProfileBehavior": {}
 }
