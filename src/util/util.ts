@@ -16,7 +16,7 @@ export async function filterImageFromURL(inputURL: string): Promise<string>{
             if(photo.bitmap.width===1 && photo.bitmap.height===1) {
                 throw new Error("Image address wrong!!");
             }
-            const outpath = '/tmp/filtered.'+Math.floor(Math.random() * 2000)+'.jpg';
+            const outpath:string = '/tmp/filtered.'+Math.floor(Math.random() * 2000)+'.jpg';
             await photo
             .resize(256, 256) // resize
             .quality(60) // set JPEG quality
@@ -25,7 +25,7 @@ export async function filterImageFromURL(inputURL: string): Promise<string>{
                 resolve(__dirname+outpath);
             });
         })
-        .catch((err) => {
+        .catch((err: Error) => {
             reject(err);
         })
     });
